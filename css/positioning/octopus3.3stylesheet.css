@@ -1,0 +1,21 @@
+#octopus {
+	position: absolute;
+	margin-top: 50%;
+	margin: auto;
+	z-index: 1;	
+}
+
+#sunglasses {
+	position: absolute;
+	margin-top: 50%;
+	margin: auto;
+	z-index: 2;	
+}
+
+#cowboyhat {
+	position: absolute;
+	margin-top: 50%;
+	margin: auto;
+	z-index: 3;
+	
+}
