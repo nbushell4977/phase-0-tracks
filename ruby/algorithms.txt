@@ -1,0 +1,26 @@
+Elevator Operation:
+-When door opens, follow owner into elevator
+-Ask owner, "What floor would you like?"
+-After door closes, push the button corresponding with said number
+-When door opens again, follow owner out of elevator
+
+Making Coffee:
+-Turn on water
+-Fill tea kettle with water
+-Turn off water
+-Place tea kettle on stove burner
+-Turn on burner
+-Remove coffee from freezer
+-Open coffee bag
+-Spoon three table spoons of coffee into french press
+-Close coffee bag
+-Return coffee bag to freezer
+-Put spoon in sink
+-When tea kettle whistles, fill french press to the metal line with water from tea kettle
+-Pour excess water from tea kettle into sink
+-Put tea kettle back on counter
+-Wait five minutes
+-Press french press plunger down
+-Get cup from cupboard
+-Fill the cup to 75% with coffee from french press 
+-Allow 2 minutes to cool coffee
