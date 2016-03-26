@@ -45,7 +45,7 @@ puts "What is your password?"
 password=gets.chomp
 
 if action=encrypt
-  puts #{ecrypt #{password}}
+  puts #{encrypt #{password}}
 else
   puts #{decrypt#{password}}
 end
