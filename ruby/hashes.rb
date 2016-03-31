@@ -18,14 +18,21 @@ puts "How many children do you have?"
 children = gets.chomp
 puts "What is your decor theme?"
 decor = gets.chomp
+questionaire = {
+ #{name}.to_sym,
+ #{age}.to_sym,
+ #{children}.to_sym,
+ #{decor}.to_sym,
+	}
 puts "{
 Name:#{name}"
 puts "Age:#{age}"
 puts "Children:#{children}"
-puts "Decor_Theme:#{decor}
+puts "Decor Theme:#{decor}
 	}"
 puts "What would you like to change?"
 change = gets.chomp
 puts "What is your #{change}:"
 value = gets.chomp
 puts "#{change}:#{value}"
+questionaire.rehash
