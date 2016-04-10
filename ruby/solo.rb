@@ -22,6 +22,10 @@ end
 def hooked
 	puts "I'm hooked...Ouch! "
 end
+
+def bubbles(x)
+	puts "I'm blowing x bubbles"
+end
  
  names=Array.new
  types=Array.new
