@@ -46,12 +46,10 @@ def gender
 	gender_array = ["male", "female", "unisex", "unsure"]
 	ethnicity_array = ["white", "black", "hispanic", "asian", "mixed", "unsure"]
 	
-	def random_santa
-		gender_array.sample
-	    ethnicity_array.sample
-	    1 + rand(140)
-	end
-	
-	1000.times do random_santa 
-end
+	1000.times {
+		 p gender_array.sample
+		 p ethnicity_array.sample
+		 p 1 + rand(140) 
+	}
+
 	
