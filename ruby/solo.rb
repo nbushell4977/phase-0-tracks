@@ -1,77 +1,90 @@
-#make a Fish class
-#add 3 attributes, and 3 methods
-#add attr_accessor and attr_reader 
-#attr type (string), taste (string), scaleyness (integer)
-#methods swim (string), hooked (string), length (integer)
+class Books
+attr_accessor :age, :price, :genre 
+attr_reader :plot
 
-class Fish
-attr_accessor :type, :taste, :scaleyness
-attr_reader :type, :taste, :scaleyness
-
-def initialize(fish)
-	p "initializing fish"
-	@type_of_fish = type
-	@tastes_like = taste
-	@level_of_scaleyness = scaleyness
+def initialize(age, price, genre, plot)
+	@age = age
+	@price = price
+	@genre = genre
+	@plot = plot
 end
 
-def swim
-	puts "I'm swimming"
+def how_old(age)
+	puts "This book is #{@age} years old."
 end
 
-def hooked
-	puts "I'm hooked...Ouch! "
+def how_much(price)
+	puts "This book is $ #{price}."
 end
 
-def bubbles(x)
-	puts "I'm blowing x bubbles"
+def what_genre(genre)
+	puts "This book is a #{@genre}"
 end
- 
- names=Array.new
- types=Array.new
- tastes=Array.new
- scaleys=Array.new
- 
- valid_input = false
- until valid_input 
- puts "Do you want to initialize some fish?(y/n)"
- fish = gets.chomp
- if fish == "y"
- 	puts "What would you like to name your fish?"
- 	name = gets.chomp
- 	puts "Your fish's name is #{name}"
- 	names << name															
- 	puts "What type of fish is #{name}"
- 	type = gets.chomp
- 	@type = #{type} 
- 	puts "#{name} is a #{type}"
- 	types << type
- 	puts "What does #{name} taste like?"
- 	taste = gets.chomp
- 	@taste = #{taste}
- 	puts "#{name} tastes like #{taste}."
- 	tastes << taste
- 	puts "How scaley is #{name} on a scale, no pun intended, of 1 to 10?"
- 	scaley = gets.chomp
- 	puts "#{name} is a #{scaley} on the scaley scale."
-    scaleys << scaley
- elsif fish == "n"
- 	p names
- 	p types
- 	p tastes
- 	p scaleys
- else
- 	puts "I didn't understand you. Try again."
- end
 
- names.each do |name| puts "Your fish's name is #{name}" 
- end
- types.each do |type| puts "Your fish is a #{type}"
- end
- tastes.each do |taste| puts "Your fish tastes like #{taste}"
- end
- scaleys.each do |scaley| puts "Your fish is a #{scaley} on the scaley scale."
- end
- end
- end
- 
+def whats_it_about(plot)
+	puts "This book is about #{@plot}"
+end
+
+end
+
+books = Array.new
+age1 = Array.new
+price1 = Array.new
+genre1 = Array.new
+plot1 = Array.new
+
+valid_input = false
+until valid_input 
+	puts "Do you want to talk about books?"
+answer = gets.chomp
+if answer == "yes"
+		puts "How old is your book?"
+	age = gets.chomp
+		puts "Your book is #{age} years old."
+	books << age
+	age1 << age
+		
+		puts "How much is your book?"
+	price = gets.chomp
+		puts "Your book is $ #{price}."
+	books << price
+	price1 << price
+		
+		puts "What kind of book is it?"
+	genre = gets.chomp
+		puts "Your book is a #{genre}."
+	books << genre
+	genre1 << genre
+		
+		puts "What is the plot of your book."
+	plot = gets.chomp
+		puts "Your book is about #{plot}."
+	books << plot
+	plot1 << plot
+
+	elsif answer == "no"
+valid_input = true
+p books
+
+
+else
+	puts "What?"
+end
+age1.each do |age| puts "Your book is #{age} years old." 
+end
+price1.each do |price| puts "Your book is $#{price}."
+end
+genre1.each do |genre| puts "Your book is a #{genre}."
+end
+plot1.each do |plot| puts "Your book is about #{plot}."
+end
+
+end
+
+
+
+
+
+
+
+
