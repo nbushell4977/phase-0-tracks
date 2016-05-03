@@ -55,120 +55,106 @@ STATE_DATA = {
   "Wisconsin" => {population_density: 105.2, population: 5726398},
   "Wyoming" => {population_density: 5.851, population: 576412}
 }
+
+
 # Virus Predictor
 
-# I worked on this challenge [ with: Britanny].
-# We spent [1.5] hours on this challenge.
+# I worked on this challenge [by myself, with: ].
+# We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#require_relative accesses another file 
-#in the same directory, that is needed for reference 
-#in your program 
 #
-# require_relative 'state_data'
+#
+#require_relative 'state_data'
 
 class VirusPredictor
-
-
-  def initialize(state_of_origin, population_density, population) # initialize instances with attributes
+  attr_reader :population, :population_density, :state
+  
+  def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
     @population = population
     @population_density = population_density
   end
-  def virus_effects # 
-    predicted_deaths 
+
+  def virus_effects
+    predicted_deaths
     speed_of_spread
   end
 
-  private # cannot call the methods below this line from outside the class
+  private
+
+#   def predicted_deaths(@population_density, @population, @state)
+#     # predicted deaths is solely based on population density
+    
+#     if @population_density < 50
+#      number_of_deaths = (@population * 0.05).floor
+    
+#     else
+#       number_of_deaths = (@population *(@population_density - 50 * 0.1)).floor
+#     end
   
   def predicted_deaths
-    # predicted deaths is solely based on population density
-    
-    if @population_density < 50
-     number_of_deaths = (@population * 0.05).floor
-    
+  # predicted deaths is solely based on population density
+    if population_density >= 200
+       death_constant = 0.4
+    elsif population_density >= 150
+          death_constant = 0.3
+    elsif population_density >= 100
+          death_constant = 0.2
+    elsif population_density >= 50
+          death_constant = 0.1
     else
-      number_of_deaths = (@population *(@population_density - 50 * 0.1)).floor
+      death_constant = 0.05
     end
-    
-    
-#     if @population_density >= 200
-#       number_of_deaths = (@population * 0.4).floor
-#     elsif @population_density >= 150
-#       number_of_deaths = (@population * 0.3).floor
-#     elsif @population_density >= 100
-#       number_of_deaths = (@population * 0.2).floor
-#     elsif @population_density >= 50
-#       number_of_deaths = (@population * 0.1).floor
-#     else
-#       number_of_deaths = (@population * 0.05).floor
-#     end
 
-    print "#{@state} will lose #{number_of_deaths} people in this outbreak"
+    number_of_deaths = (population * death_constant).floor
+    print "#{state} will lose #{number_of_deaths} people in this outbreak"
 
   end
 
   def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
-    speed = 0.0
-
-
-    if @population_density >= 200
-      speed += 0.5
-    elsif @population_density >= 150
-      speed += 1
-    elsif @population_density >= 100
-      speed += 1.5
-    elsif @population_density >= 50
-      speed += 2
+    if population_density >= 200
+      speed = 0.5
+    elsif population_density >= 150
+      speed = 1
+    elsif population_density >= 100
+      speed = 1.5
+    elsif population_density >= 50
+      speed = 2
     else
-      speed += 2.5
+      speed = 2.5
     end
 
     puts " and will spread across the state in #{speed} months.\n\n"
 
   end
+
 end
 
-def virus_report
-  STATE_DATA.each do |state, population_data|
-    state = VirusPredictor.new(state, population_data[:population_density], population_data[:population])
-    state.virus_effects
-  end
-end
 
-p virus_report
+
 #=======================================================================
 
 # DRIVER CODE
-#  initialize VirusPredictor for each state
+ # initialize VirusPredictor for each state
 
 
-# alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
-# alabama.virus_effects
+alabama = VirusPredictor.new("Alabama", STATE_DATA["Alabama"][:population_density], STATE_DATA["Alabama"][:population])
+alabama.virus_effects
 
-# jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
-# jersey.virus_effects
+jersey = VirusPredictor.new("New Jersey", STATE_DATA["New Jersey"][:population_density], STATE_DATA["New Jersey"][:population])
+jersey.virus_effects
 
-# california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
-# california.virus_effects
+california = VirusPredictor.new("California", STATE_DATA["California"][:population_density], STATE_DATA["California"][:population])
+california.virus_effects
 
-# alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
-# alaska.virus_effects
+alaska = VirusPredictor.new("Alaska", STATE_DATA["Alaska"][:population_density], STATE_DATA["Alaska"][:population])
+alaska.virus_effects
 
-#=======================================================================
-# Reflection Section
-# What are the differences between the two different hash syntaxes shown in the state_data file?
-#-One hash uses the hash rocket ( => ), the nested hash uses the symbol ( : ). 
-# What does require_relative do? How is it different from require?
-#-require_relative accesses another file 
-#in the same directory, that is needed for reference 
-#in your program.  
-# What are some ways to iterate through a hash?
-#- .each
-# When refactoring virus_effects, what stood out to you about the variables, if anything?
-#- They were attributes.
-# What concept did you most solidify in this challenge? 
-#- I solidified the concept of refactoring in order to eliminate redundancy.
+
+#release 5 driver code:
+STATE_DATA.each do |state, data_hash|
+  VirusPredictor.new(state, data_hash[:population_density], data_hash[:population]).virus_effects
+ end
