@@ -1,4 +1,4 @@
-// 7.2 Pair - Ed Mechem & Nick Bushell
+// 7.2 
 
 
 // Make some arrays
