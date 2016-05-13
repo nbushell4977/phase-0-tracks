@@ -1,0 +1,14 @@
+CREATE TABLE magazines (
+id INTEGER PRIMARY KEY,
+name VARCHAR(255),
+price INT,
+good BOOLEAN,
+sections_id INT
+);
+
+CREATE TABLE sections (
+id INTEGER PRIMARY KEY,
+name VARCHAR(255),
+magazines_id INT,
+FOREIGN KEY (magazines_id) REFERENCES magazines(id) 
+);
