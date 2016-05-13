@@ -1,0 +1,35 @@
+SELECT * FROM magazines;
+1|new_yorker|500|true
+2|maxim|600|false
+
+UPDATE magazines SET price=400 WHERE name="maxim";
+SELECT * FROM magazines;
+1|new_yorker|500|true
+2|maxim|400|false
+
+
+SELECT * FROM magazines, sections
+|new_yorker|500|true||1|news|
+|new_yorker|500|true||2|sports|
+|new_yorker|500|true||3|entertainment|
+|maxim|400|false||1|news|
+|maxim|400|false||2|sports|
+|maxim|400|false||3|entertainment|
+
+SELECT name, good FROM magazines; SELECT name FROM sections;
+
+name      good
+----      ------
+new_york  true
+maxim     false
+name
+-----
+news
+sports
+entertainment
+
+DELETE FROM magazines WHERE price > 400;
+SELECT * FROM magazines;
+|maxim|400|false||1|news|
+|maxim|400|false||2|sports|
+|maxim|400|false||3|entertainment|
