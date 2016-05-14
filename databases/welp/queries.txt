@@ -1,0 +1,9 @@
+
+# I couldn't copy the table results from my terminal, so I just rewrote the commands here, and made sure they worked in terminal.
+
+
+2. SELECT * FROM reviews, businesses, users WHERE reviews.business_id = businesses.id AND reviews.user_id = users.id;
+
+3. SELECT users.first_name, reviews.stars, reviews.comment, businesses.name FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id;
+
+4. SELECT users.first_name, reviews.stars, reviews.comment, businesses.name FROM reviews JOIN users ON reviews.user_id = users.id JOIN businesses ON reviews.business_id = businesses.id WHERE businesses.id = 1;
