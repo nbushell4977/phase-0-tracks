@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>Student Management</title>
+  <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="bootstrap.css">
+</head>
+<body id="bod">
+  <div class="container">
+  <h1>Student Management System</h1>
+  <p>Welcome to the student management system.</p>
+  <p>Click <a href="students/new">here</a> to create a new student.</p>
+  <p>Click <a href="students/delete">delete student</a> to delete a student</p>
+  
+
+   <div class="row">
+    
+      <ul class="col-md-2" id="sf">
+       <strong>San Francisco</strong> 
+        <% @students.each do |student| %>
+        <% if student['campus'] == 'SF' %>
+          <li><%= student['name'] %> <%= student['campus'] %></li>
+          <% end %>
+        <% end %>
+      </ul>
+      
+
+
+       <ul class="col-md-2" id="bos"> 
+       <strong id="nyctag">Boston</strong>
+        <% @students.each do |student| %>
+        <% if student['campus'] == 'BOS' %>
+          <li><%= student['name'] %> <%= student['campus'] %></li>
+          <% end %>
+        <% end %>
+      </ul>
+   
+
+
+      <ul class="col-md-2" id="sd"> 
+      <strong>San Diego</strong>
+        <% @students.each do |student| %>
+        <% if student['campus'] == 'SD' %>
+          <li><%= student['name'] %> <%= student['campus'] %></li>
+          <% end %>
+        <% end %>
+      </ul>
+
+
+
+    <ul class="col-md-2" id="den"> 
+     <strong>Denver</strong>
+      <% @students.each do |student| %>
+        <% if student['campus'] == 'DEN' %>
+            <li><%= student['name'] %> <%= student['campus'] %></li>
+        <% end %>
+      <% end %>
+   </ul>
+  
+</div><!-- end row -->
+
+<script src="jquery.js"></script>
+<script src="bootstrap.js"></script>
+</div>
+</body>
+</html>
